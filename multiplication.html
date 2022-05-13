@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>앰성의 구구단 테스트</title>
+
+    <script type="application/javascript">
+        function startMultiplication1() {
+            document.getElementById('resultArea').innerHTML = '';
+
+            const startDan = 2, endDan = 9
+            // 반목문 for는 for () 가로 안에 선언된 조건을 따라 {} 괄호 안의 행위를 반복한다.
+            // 아래 내용을보면 startDan = 2 부터 endDan = 9 까지 danIndex++ 하나씩 숫자를 올려가며 반복한다.
+            // 9까지 인데 + 1을 한 이유는 비교 기호 < 에 = 등호가 붙어있지 않으면 미만을 뜻한다.
+            // 2, 3, 4, 5, 6, 7, 8 ,9 이렇게 총 8번을 안의 내용을 반복한다.
+            for (let danIndex = startDan; danIndex < endDan + 1; danIndex++) {
+                document.getElementById('resultArea').innerHTML +=  danIndex + 'X' + 1 + '=' + (danIndex * 1) + '<br />';
+                document.getElementById('resultArea').innerHTML +=  danIndex + 'X' + 2 + '=' + (danIndex * 2) + '<br />';
+                document.getElementById('resultArea').innerHTML +=  danIndex + 'X' + 3 + '=' + (danIndex * 3) + '<br />';
+                document.getElementById('resultArea').innerHTML +=  danIndex + 'X' + 4 + '=' + (danIndex * 4) + '<br />';
+                document.getElementById('resultArea').innerHTML +=  danIndex + 'X' + 5 + '=' + (danIndex * 5) + '<br />';
+                document.getElementById('resultArea').innerHTML +=  danIndex + 'X' + 6 + '=' + (danIndex * 6) + '<br />';
+                document.getElementById('resultArea').innerHTML +=  danIndex + 'X' + 7 + '=' + (danIndex * 7) + '<br />';
+                document.getElementById('resultArea').innerHTML +=  danIndex + 'X' + 8 + '=' + (danIndex * 8) + '<br />';
+                document.getElementById('resultArea').innerHTML +=  danIndex + 'X' + 9 + '=' + (danIndex * 9) + '<br />';
+                document.getElementById('resultArea').innerHTML += '<br />';
+            }
+        }
+
+        function startMultiplication2() {
+            document.getElementById('resultArea').innerHTML = '';
+
+            for (let danIndex = 2; danIndex < 10; danIndex++) {
+                for (let gopIndex = 1; gopIndex < 10; gopIndex++) {
+                    document.getElementById('resultArea').innerHTML += getResultPrint(danIndex, gopIndex);
+                }
+                document.getElementById('resultArea').innerHTML += '<br /><br />';
+            }
+        }
+
+        function getResultPrint(danIndex, gopIndex) {
+            let result = danIndex * gopIndex;
+            let resultPrint = result < 10 ? '&nbsp;' + result : result ;
+            return  danIndex + ' X ' + gopIndex + ' = ' + resultPrint + '&nbsp; &nbsp; &nbsp; &nbsp;';
+        }
+
+        function startMultiplication3() {
+            document.getElementById('resultArea').innerHTML = '';
+
+            const startDan = 2, endDan = 9
+            for (let gopIndex = 1; gopIndex < 10; gopIndex++) {
+                for (let danIndex = startDan; danIndex < endDan+ 1; danIndex++) {
+                    document.getElementById('resultArea').innerHTML +=  getResultPrint(danIndex, gopIndex);
+                }
+                document.getElementById('resultArea').innerHTML += '<br />';
+            }
+        }
+    </script>
+</head>
+<body>
+
+<button type="button" onclick="startMultiplication1()">구구단 시작V1</button>
+<button type="button" onclick="startMultiplication2()">구구단 시작V2</button>
+<button type="button" onclick="startMultiplication3()">구구단 시작V3</button>
+
+<h3>결과</h3>
+
+<div id="resultArea">
+
+</div>
+</body>
+</html>

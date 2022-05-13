@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>앰성의 홀짝구분 테스트</title>
+
+    <script type="application/javascript">
+        function checkEven() {
+            document.getElementById('resultArea').innerHTML = '';
+            let value = document.getElementById('number').value;
+
+            const regx = /^[0-9]$/g;
+            console.log(regx.test(value))
+
+            const even_number_kor = "짝수", odd_number_kor = "홀수";
+            if (value % 2 == 0) {
+                document.getElementById('resultArea').innerHTML = even_number_kor;
+            } else {
+                document.getElementById('resultArea').innerHTML = odd_number_kor;
+            }
+        }
+    </script>
+</head>
+<body>
+이번강의는 조건문이 무엇인지 이해하는게 목표<br />
+<input type="text" id="number">
+<button type="button" onclick="checkEven()">결과</button>
+
+<h3>결과</h3>
+<div>
+    <span>입력한 숫자는&nbsp;&nbsp;</span><span id="resultArea" style="color: red"></span>&nbsp;입니다.
+</div>
+</body>
+</html>
